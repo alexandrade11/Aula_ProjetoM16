@@ -9,7 +9,7 @@ app.set('view engine','ejs');
 
 app.get('/', (req, res) =>{
   let  compras = ["Maçã","Compal","Batata"];
-    res.render('index', {mensagem: "A minha lista", lista: compras});
+    res.render('lista', {mensagem: "A minha lista", lista: compras});
 })
 
 app.listen(port, () => {
