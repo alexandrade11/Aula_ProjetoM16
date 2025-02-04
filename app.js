@@ -9,7 +9,7 @@ app.use(express.json());
 app.set('view engine','ejs');
 
 app.get('/', (res, req) =>{
-    
+    res.render('index', {mensagem: "Olá"});
 })
 
 app.listen(port, () => {
