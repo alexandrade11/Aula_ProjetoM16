@@ -7,10 +7,18 @@ app.use(express.json());
 
 app.set('view engine','ejs');
 
-app.get('/', (req, res) =>{
+app.get('/lista', (req, res) =>{
   let  compras = ["Maçã","Compal","Batata"];
     res.render('lista', {mensagem: "A minha lista", lista: compras});
 })
+
+app.get('/', (req, res) =>{
+   res.render('main');
+}) 
+
+app.get('/contacts', (req, res) =>{
+    res.render('contacts')
+}); 
 
 app.listen(port, () => {
     console.log(`Example app listening on http://localhost:${port}`)
