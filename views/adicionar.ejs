@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form id="ad_prod">
+        <label for="produto">Produto</label>
+        <input type="text" name="produto" id="produto">
+        <label for="quant">Quantidade</label>
+        <input type="text" name="quant" id="quant">
+        <button type="submit">Adicionar à lista</button>
+    </form>
+
+    <script>
+        document.getElementById('ad_prod').addEventListener('submit', function(event){
+            event.preventDefault();
+
+            const formdata = new FormData(event.target);
+            const data = Object.fromEntries(formdata.entries());
+
+            axios.post('/nova-compra', data)
+            .then(response=>{
+                console.log('success', response.data);
+                location.reload();
+            })
+            .catch((error) =>{
+                console.log('error', error);
+            });
+        });
+    </script>
+</body>
+</html>
