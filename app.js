@@ -17,8 +17,16 @@ app.get('/', (req, res) =>{
 }) 
 
 app.get('/contacts', (req, res) =>{
-    res.render('contacts')
+    res.render('contacts');
 }); 
+
+app.get('/nova-compra', (req, res)=>{
+  res.render('adicionar');
+})
+
+app.post('/nova-compra', (req, res)=>{
+  
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on http://localhost:${port}`)
